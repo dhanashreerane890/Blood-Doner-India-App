@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.dashboard.DashboardFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            android:layout_marginTop="25dp"
+            app:layout_constraintTop_toTopOf="parent">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivBecomeDonor"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/profile_image"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:id="@+id/tv_name"
+                android:textColor="@color/black"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/btnUpdateInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="UPDATE INFO"
+                android:paddingStart="40dp"
+                android:backgroundTint="@color/red"
+                android:paddingEnd="40dp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:textAlignment="center"
+                android:text="@string/become"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+<!--    <com.sdsmdg.harjot.longshadows.LongShadowsWrapper-->
+<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="#F5362C">-->
+
+<!--        <com.sdsmdg.harjot.longshadows.LongShadowsImageView-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:src="@drawable/ic_baseline_cruelty_free_24" />-->
+
+<!--    </com.sdsmdg.harjot.longshadows.LongShadowsWrapper>-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="45dp"
+            android:paddingStart="60dp"
+            android:id="@+id/btnLogout"
+            android:backgroundTint="@color/red"
+            android:paddingEnd="60dp"
+            android:text="LOGOUT"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

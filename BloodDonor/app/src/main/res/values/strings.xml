@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">OwnBloodDonor</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="become">"Your account will be available in the search, only after you completed all the necessary information about yourself."</string>
+    <string name="your_string"><u>Create an account.</u></string>
+    <string name="about_message">There are challenges in getting sufficient safe blood to the world’s poorest communities. Every day in these countries, people die because of a shortage of blood GBF helps blood collectors in these countries by providing money, equipment, training and other forms of support. A particular focus is encouraging voluntary blood donation – the key to a safer and more plentiful blood supply. Save Life Connect works with network partners to connect blood donors and recipients through an automated SMS service and a mobile app.Save Life Connects ultimate goal is to provide an easy-to-use, easy-to-access, fast, efficient, and reliable way to get life-saving blood, totally Free of cost. We are a non profit foundation and our main objective is to make sure that everything is done to protect vulnerable persons. Help us by making a gift !</string>
+    <string-array name="blood_groups">
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+        <item>O+</item>
+        <item>O-</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_added">User Successfully Added</string>
+    <string name="user_updated">User Successfully Updated</string>
+    <string name="error">Error: %1$s</string>
+
+</resources>
