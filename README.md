@@ -11,22 +11,6 @@ Blood Donation India- Blood Donation is the latest app for blood donation, help 
 - Livedata: [Livedata](https://developer.android.com/topic/libraries/architecture/livedata)
 
 
-# Snapshots 📷
-
-
-<br>
-
-## How to run the project 📑
-
-Please fork the repository and then use it on your own. If you want to collaborate with us on this project then please feel free to reach out to us.
-
-You can also take the glimpse of our Project, just follow the below steps:
-
-    1.Clone the repository in your system and open it in Android Studio.
-
-    2.Build the Gradle and install the app on your device.
-
-<br>
 
 ## Snapshots 📷
 
@@ -47,12 +31,11 @@ You can also take the glimpse of our Project, just follow the below steps:
 </p>
  <p float="left">
   
-  
- 
+
   <img src="https://user-images.githubusercontent.com/75352507/132059438-4cdb321e-a619-4a19-b7a4-12f23891cc1f.png" width="250" />
     <img src="https://user-images.githubusercontent.com/75352507/132059448-e0eb6574-3da4-4c7c-9dc5-76ce37b0594c.png" width="250" />
   
- 
+
 </p>
 
 <br>
