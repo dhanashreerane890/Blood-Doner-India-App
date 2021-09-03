@@ -2,6 +2,8 @@
 Blood Donation India- Blood Donation is the latest app for blood donation, help people who need blood for a surgical operation or need blood Same people to give blood donation, you can just simply register on the app and find a doner for blood group that you want and you can contact them. you can search their location also and reach out to people. Giving blood saves lives. The blood you give is a lifeline in an emergency and for people who need long-term treatments. Many people would not be alive today if donors had not generously given their blood. Blood or the components of blood are used to treat patients with medical conditions such as anemia, cancer blood disorders, and those having surgery.
 
 
+
+
 # Technology Stack Used 📲
 
 - Android: [Android](https://developer.android.com/docs)
@@ -9,6 +11,9 @@ Blood Donation India- Blood Donation is the latest app for blood donation, help 
 - Kotlin: [Kotlin](https://kotlinlang.org/)
 - MVVM: [MVVM](https://developer.android.com/jetpack/guide?gclid=CjwKCAjwruSHBhAtEiwA_qCppj5mUxSQBy99PVOSBCLh_NDGeCTxmghaQRxdzb-HBiFWcVvfFw9PeRoCRUIQAvD_BwE&gclsrc=aw.ds/)
 - Livedata: [Livedata](https://developer.android.com/topic/libraries/architecture/livedata)
+
+
+
 
 
 
@@ -39,16 +44,5 @@ Blood Donation India- Blood Donation is the latest app for blood donation, help 
 </p>
 
 <br>
-
-
-
-
-
-
-
-
-
-
-
 
 
