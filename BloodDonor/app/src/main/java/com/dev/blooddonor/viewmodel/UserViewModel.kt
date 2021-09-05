@@ -1,16 +1,16 @@
-package com.dev.blooddonor
+package com.dev.blooddonor.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.dev.blooddonor.model.Constant.NODE_USER
+import com.dev.blooddonor.constant.Constant.NODE_USER
 import com.dev.blooddonor.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
-class UserViewModel:ViewModel() {
-    private  var auth =FirebaseAuth.getInstance()
+class UserViewModel : ViewModel() {
+    private var auth = FirebaseAuth.getInstance()
 
     private val _users = MutableLiveData<List<User>>()
     val users: LiveData<List<User>>
@@ -43,13 +43,13 @@ class UserViewModel:ViewModel() {
     fun addAuthor(user: User) {
         user.id = dbUser.push().key
         dbUser.child(user.id!!).setValue(user)
-                .addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        _result.value = null
-                    } else {
-                        _result.value = it.exception
-                    }
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    _result.value = null
+                } else {
+                    _result.value = it.exception
                 }
+            }
     }
 
 
@@ -84,8 +84,8 @@ class UserViewModel:ViewModel() {
 
     fun fetchFilteredAuthors(index: String) {
         val dbAuthors = FirebaseDatabase.getInstance().getReference(NODE_USER)
-                                .orderByChild("bloodGroup")
-                                .equalTo(index)
+            .orderByChild("bloodGroup")
+            .equalTo(index)
 
         dbAuthors.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {}
@@ -96,7 +96,7 @@ class UserViewModel:ViewModel() {
                     for (authorSnapshot in snapshot.children) {
                         val author = authorSnapshot.getValue(User::class.java)
                         author?.id = authorSnapshot.key
-                        Log.d("TAG", "onDataChange: "+authorSnapshot.key)
+                        Log.d("TAG", "onDataChange: " + authorSnapshot.key)
                         author?.let { authors.add(it) }
                     }
                     _users.value = authors
@@ -109,14 +109,14 @@ class UserViewModel:ViewModel() {
 
 
     fun fetchCurrentUser(userId: String) {
-        Log.d("SK", "fetchCurrentUser: "+userId)
+        Log.d("SK", "fetchCurrentUser: " + userId)
         val userCur = FirebaseDatabase.getInstance().getReference(NODE_USER)
-                .orderByChild("userId")
-                .equalTo(userId)
+            .orderByChild("userId")
+            .equalTo(userId)
 
         userCur.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
-                Log.d("TAG", "onCancelled: "+error)
+                Log.d("TAG", "onCancelled: " + error)
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {

@@ -15,18 +15,22 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.navArgs
-import com.dev.blooddonor.model.OnClickListeners
+import com.dev.blooddonor.adapter.AuthorsAdapter
+import com.dev.blooddonor.listener.OnClickListeners
+import com.dev.blooddonor.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.fragment_find_donor.*
 
 
-class FindDonorFragment : Fragment(),OnClickListeners {
+class FindDonorFragment : Fragment(), OnClickListeners {
 
-    val MY_PERMISSIONS_REQUEST_CALL_PHONE=123
+    val MY_PERMISSIONS_REQUEST_CALL_PHONE = 123
     val args: FindDonorFragmentArgs by navArgs()
-    private lateinit var viewModel:UserViewModel
+    private lateinit var viewModel: UserViewModel
     private val adapter = AuthorsAdapter(this)
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
 
         viewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
         return inflater.inflate(R.layout.fragment_find_donor, container, false)
@@ -34,15 +38,15 @@ class FindDonorFragment : Fragment(),OnClickListeners {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-val bloodGroup=args.bloodGroup
+        val bloodGroup = args.bloodGroup
         Log.d("TAG", "onViewCreated: sk" + bloodGroup)
-        recyclerView.adapter=adapter
+        recyclerView.adapter = adapter
         viewModel.getRealtimeUpdates()
         viewModel.fetchFilteredAuthors(bloodGroup)
-    viewModel.users.observe(viewLifecycleOwner, Observer {
-        Log.d("TAG", "onViewCreated: " + it)
-        adapter.setAuthors(it)
-    })
+        viewModel.users.observe(viewLifecycleOwner, Observer {
+            Log.d("TAG", "onViewCreated: " + it)
+            adapter.setAuthors(it)
+        })
 
     }
 
@@ -53,13 +57,17 @@ val bloodGroup=args.bloodGroup
         // Here, thisActivity is the current activity
         // Here, thisActivity is the current activity
         if (context?.let {
-                    ContextCompat.checkSelfPermission(it,
-                            Manifest.permission.CALL_PHONE)
-                }
-                != PackageManager.PERMISSION_GRANTED) {
+                ContextCompat.checkSelfPermission(
+                    it,
+                    Manifest.permission.CALL_PHONE
+                )
+            }
+            != PackageManager.PERMISSION_GRANTED) {
             activity?.let {
-                ActivityCompat.requestPermissions(it, arrayOf(Manifest.permission.CALL_PHONE),
-                        MY_PERMISSIONS_REQUEST_CALL_PHONE)
+                ActivityCompat.requestPermissions(
+                    it, arrayOf(Manifest.permission.CALL_PHONE),
+                    MY_PERMISSIONS_REQUEST_CALL_PHONE
+                )
             }
 
             // MY_PERMISSIONS_REQUEST_CALL_PHONE is an
@@ -75,7 +83,11 @@ val bloodGroup=args.bloodGroup
         }
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
         when (requestCode) {

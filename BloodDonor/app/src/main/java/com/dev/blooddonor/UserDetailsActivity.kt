@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
+import com.dev.blooddonor.viewmodel.UserViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_user_details.*
@@ -23,9 +24,10 @@ import kotlinx.android.synthetic.main.activity_user_details.*
 
 class UserDetailsActivity : AppCompatActivity() {
     private lateinit var viewModel: UserViewModel
-//    private var source_add: String? = null
+
+    //    private var source_add: String? = null
     private lateinit var firebaseUser: FirebaseUser
-   val MY_PERMISSIONS_REQUEST_CALL_PHONE=143
+    val MY_PERMISSIONS_REQUEST_CALL_PHONE = 143
 
     @SuppressLint("IntentReset")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,18 +40,18 @@ class UserDetailsActivity : AppCompatActivity() {
         iv_back.setOnClickListener {
             onBackPressed()
         }
-        if (intent!=null&&intent.extras!=null){
-            user_name.text=intent.getStringExtra("name")
-            user_age.text=intent.getStringExtra("age")
-            user_blood_group.text=intent.getStringExtra("bloodGroup")
-            user_phone.text=intent.getStringExtra("phoneNumber")
-            user_email.text=intent.getStringExtra("email")
+        if (intent != null && intent.extras != null) {
+            user_name.text = intent.getStringExtra("name")
+            user_age.text = intent.getStringExtra("age")
+            user_blood_group.text = intent.getStringExtra("bloodGroup")
+            user_phone.text = intent.getStringExtra("phoneNumber")
+            user_email.text = intent.getStringExtra("email")
             if (intent.getStringExtra("imageUrl") == "") {
                 user_image.setImageResource(R.drawable.profile_image)
             } else {
-                 Glide.with(this).load(intent.getStringExtra("imageUrl")).into(user_image)
+                Glide.with(this).load(intent.getStringExtra("imageUrl")).into(user_image)
             }
-            user_address.text=intent.getStringExtra("address")
+            user_address.text = intent.getStringExtra("address")
 
             user_send_email.setOnClickListener {
                 val emailIntent = Intent(Intent.ACTION_SENDTO)
@@ -82,13 +84,15 @@ class UserDetailsActivity : AppCompatActivity() {
                 }
                 if (TextUtils.isEmpty(destination)) {
                     user_address.error = "Enter Destination Point"
-                }else{
+                } else {
                     val sendstring = "http://maps.google.com/maps?saddr=" +
                             source_add +
                             "&daddr=" +
                             destination
-                    val intent = Intent(Intent.ACTION_VIEW,
-                        Uri.parse(sendstring))
+                    val intent = Intent(
+                        Intent.ACTION_VIEW,
+                        Uri.parse(sendstring)
+                    )
                     startActivity(intent)
                 }
                 Log.d("TAG", "onCreate: " + "Hii dhanu")
@@ -99,15 +103,23 @@ class UserDetailsActivity : AppCompatActivity() {
         })
 
 
-
     }
-     fun onCallUser(phoneNumber: String) {
+
+    fun onCallUser(phoneNumber: String) {
         val uri = "tel:" + phoneNumber.trim()
         val intent = Intent(Intent.ACTION_CALL)
         intent.data = Uri.parse(uri)
-         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.CALL_PHONE
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
 
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CALL_PHONE), MY_PERMISSIONS_REQUEST_CALL_PHONE)
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.CALL_PHONE),
+                MY_PERMISSIONS_REQUEST_CALL_PHONE
+            )
         } else {
             try {
                 startActivity(intent)
@@ -117,7 +129,11 @@ class UserDetailsActivity : AppCompatActivity() {
         }
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
             MY_PERMISSIONS_REQUEST_CALL_PHONE -> {

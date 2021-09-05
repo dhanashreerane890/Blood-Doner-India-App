@@ -1,4 +1,4 @@
-package com.dev.blooddonor.ui.home
+package com.dev.blooddonor.user_interface.home
 
 import android.graphics.Color
 import android.os.Bundle
@@ -12,8 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.*
 import androidx.navigation.fragment.findNavController
 import com.dev.blooddonor.R
-import com.dev.blooddonor.UserViewModel
-import com.dev.blooddonor.model.LoadingDialog
+import com.dev.blooddonor.viewmodel.UserViewModel
+import com.dev.blooddonor.dialog.LoadingDialog
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -25,33 +25,38 @@ class HomeFragment : Fragment() {
     var count5 = 0
     var count6 = 0
     var count7 = 0
-//    var km:String?=null
-private lateinit var viewModel: UserViewModel
+
+    //    var km:String?=null
+    private lateinit var viewModel: UserViewModel
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         viewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
 
-        return  inflater.inflate(R.layout.fragment_home, container, false)
+        return inflater.inflate(R.layout.fragment_home, container, false)
 
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val loadingDialog= activity?.let { LoadingDialog(it) }
-        viewModel.km.observe(viewLifecycleOwner, Observer {value->
-            Log.d("TAG", "onActivityCreated: saurabh  "+value)
+        val loadingDialog = activity?.let { LoadingDialog(it) }
+        viewModel.km.observe(viewLifecycleOwner, Observer { value ->
+            Log.d("TAG", "onActivityCreated: dhanu  " + value)
 
 
             btnFindDonor.setOnClickListener {
-                if(value.equals("")){
-                    Toast.makeText(context,"Select Blood group",Toast.LENGTH_SHORT).show()
+                if (value.equals("")) {
+                    Toast.makeText(context, "Select Blood group", Toast.LENGTH_SHORT).show()
                 }
                 loadingDialog?.startLoadingDialog()
-                val handler= Handler()
+                val handler = Handler()
                 handler.postDelayed({
                     loadingDialog?.dismissDialog()
-                },1500)
+                }, 1500)
                 val action = HomeFragmentDirections.actionGlobalFindDonorFragment(value)
                 findNavController().navigate(action)
             }
@@ -60,7 +65,7 @@ private lateinit var viewModel: UserViewModel
 
 
         btnAPositive.setOnClickListener {
-            viewModel._km.value="A+"
+            viewModel._km.value = "A+"
             count1 = 1
             count2 = 0
             count3 = 0
@@ -77,7 +82,7 @@ private lateinit var viewModel: UserViewModel
 
         btnANegative.setOnClickListener {
             Log.d("tag", "onViewCreated:" + count1)
-            viewModel._km.value="A-"
+            viewModel._km.value = "A-"
             count1 = 0
             count2 = 1
             count3 = 0
@@ -91,7 +96,7 @@ private lateinit var viewModel: UserViewModel
 
         btnBPositive.setOnClickListener {
             Log.d("tag", "onViewCreated:" + count2)
-            viewModel._km.value="B+"
+            viewModel._km.value = "B+"
             count1 = 0
             count2 = 0
             count3 = 1
@@ -105,7 +110,7 @@ private lateinit var viewModel: UserViewModel
 
         btnBNegative.setOnClickListener {
             Log.d("tag", "onViewCreated:" + count2)
-            viewModel._km.value="B-"
+            viewModel._km.value = "B-"
             count1 = 0
             count2 = 0
             count3 = 0
@@ -120,7 +125,7 @@ private lateinit var viewModel: UserViewModel
         btnOPositive.setOnClickListener {
             Log.d("tag", "onViewCreated:" + count2)
 //            tvkm.text="O+"
-            viewModel._km.value="O+"
+            viewModel._km.value = "O+"
             count1 = 0
             count2 = 0
             count3 = 0
@@ -135,7 +140,7 @@ private lateinit var viewModel: UserViewModel
         btnONegative.setOnClickListener {
             Log.d("tag", "onViewCreated:" + count2)
 //            km="O-"
-            viewModel._km.value="O-"
+            viewModel._km.value = "O-"
             count1 = 0
             count2 = 0
             count3 = 0
@@ -150,7 +155,7 @@ private lateinit var viewModel: UserViewModel
         btnABPositive.setOnClickListener {
             Log.d("tag", "onViewCreated:" + count2)
 //            km="AB+"
-            viewModel._km.value="AB+"
+            viewModel._km.value = "AB+"
             count1 = 0
             count2 = 0
             count3 = 0
@@ -165,7 +170,7 @@ private lateinit var viewModel: UserViewModel
         btnABNegative.setOnClickListener {
             Log.d("tag", "onViewCreated:" + count2)
 //            km="AB-"
-            viewModel._km.value="AB-"
+            viewModel._km.value = "AB-"
             count1 = 0
             count2 = 0
             count3 = 0

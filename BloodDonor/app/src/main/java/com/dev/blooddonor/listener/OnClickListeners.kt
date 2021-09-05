@@ -1,4 +1,4 @@
-package com.dev.blooddonor.model
+package com.dev.blooddonor.listener
 
 interface OnClickListeners {
 

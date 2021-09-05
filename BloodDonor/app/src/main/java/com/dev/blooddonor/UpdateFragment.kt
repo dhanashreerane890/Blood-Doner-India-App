@@ -14,9 +14,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
-import com.dev.blooddonor.model.Constant
-import com.dev.blooddonor.model.LoadingDialog
+import com.dev.blooddonor.constant.Constant
+import com.dev.blooddonor.dialog.LoadingDialog
 import com.dev.blooddonor.model.User
+import com.dev.blooddonor.viewmodel.UserViewModel
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -40,7 +41,7 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
     private lateinit var firebaseUser: FirebaseUser
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var databaseReference: DatabaseReference
-  private lateinit var loadingDialog: LoadingDialog
+    private lateinit var loadingDialog: LoadingDialog
 
     private var filePath: Uri? = null
     private var bitmap: Bitmap? = null
@@ -70,26 +71,26 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
         viewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
         firebaseUser = FirebaseAuth.getInstance().currentUser!!
-        usersId=firebaseUser.uid
+        usersId = firebaseUser.uid
         viewModel.fetchCurrentUser(usersId!!)
         databaseReference = FirebaseDatabase.getInstance().reference.child(Constant.NODE_USER)
 
 
 
-        viewModel.currentUsers.observe(viewLifecycleOwner, Observer {user->
+        viewModel.currentUsers.observe(viewLifecycleOwner, Observer { user ->
             Log.d("TAG", "onViewCreated:  sk " + user[0].userId)
             Log.d("TAG", "onViewCreated:  sk " + user[0].eamil)
 
             tv_userName.text = user[0].name
             et_name.setText(user[0].name)
-            etAddress.setText(user[0].userAddress?:"")
+            etAddress.setText(user[0].userAddress ?: "")
             etNumber.setText(user[0].phoneNumber)
             tvCount.text = user[0].age
             age = user[0].age?.toInt() ?: 0
             emails = user[0].eamil
             curUserId = user[0].id
             bloodGrp = user[0].bloodGroup
-            user_images= user[0].profileImage
+            user_images = user[0].profileImage
             if (user[0].profileImage == "") {
                 ivUpdateProfile.setImageResource(R.drawable.profile_image)
             } else {
@@ -102,7 +103,7 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
         storageRef = FirebaseStorage.getInstance().reference
 
- 
+
         btnPlus.setOnClickListener {
 
             if (age <= 100) {
@@ -120,7 +121,7 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
         }
 
         btnAPositiveUpdate.setOnClickListener {
-            viewModel._kms.value="A+"
+            viewModel._kms.value = "A+"
             count1 = 1
             count2 = 0
             count3 = 0
@@ -135,7 +136,7 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
 
         btnANegativeUpdate.setOnClickListener {
-            viewModel._kms.value="A-"
+            viewModel._kms.value = "A-"
             Log.d("tag", "onViewCreated:" + count1)
             count1 = 0
             count2 = 1
@@ -150,7 +151,7 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
         btnBPositiveUpdate.setOnClickListener {
             Log.d("tag", "onViewCreated:" + count2)
-            viewModel._kms.value="B+"
+            viewModel._kms.value = "B+"
             count1 = 0
             count2 = 0
             count3 = 1
@@ -164,7 +165,7 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
         btnBNegativeUpdate.setOnClickListener {
             Log.d("tag", "onViewCreated:" + count2)
-            viewModel._kms.value="B-"
+            viewModel._kms.value = "B-"
             count1 = 0
             count2 = 0
             count3 = 0
@@ -178,7 +179,7 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
         btnOPositiveUpdate.setOnClickListener {
             Log.d("tag", "onViewCreated:" + count2)
-            viewModel._kms.value="O+"
+            viewModel._kms.value = "O+"
             count1 = 0
             count2 = 0
             count3 = 0
@@ -192,7 +193,7 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
         btnONegativeUpdate.setOnClickListener {
             Log.d("tag", "onViewCreated:" + count2)
-            viewModel._kms.value="O-"
+            viewModel._kms.value = "O-"
             count1 = 0
             count2 = 0
             count3 = 0
@@ -206,7 +207,7 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
         btnABPositiveUpdate.setOnClickListener {
             Log.d("tag", "onViewCreated:" + count2)
-            viewModel._kms.value="AB+"
+            viewModel._kms.value = "AB+"
             count1 = 0
             count2 = 0
             count3 = 0
@@ -220,7 +221,7 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
         btnABNegativeUpdate.setOnClickListener {
             Log.d("tag", "onViewCreated:" + count2)
-            viewModel._kms.value="AB-"
+            viewModel._kms.value = "AB-"
             count1 = 0
             count2 = 0
             count3 = 0
@@ -242,24 +243,29 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
     private fun uploadProfile() {
         btnChange.setOnClickListener {
-          Dexter.withActivity(activity).withPermission(Manifest.permission.READ_EXTERNAL_STORAGE).withListener(object : PermissionListener {
-              override fun onPermissionGranted(response: PermissionGrantedResponse?) {
-                  val intent = Intent()
-                  intent.type = "image/*"
-                  intent.action = Intent.ACTION_GET_CONTENT
-                  startActivityForResult(Intent.createChooser(intent, "Select Image"), PICK_IMAGE_REQUEST)
-              }
+            Dexter.withActivity(activity).withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                .withListener(object : PermissionListener {
+                    override fun onPermissionGranted(response: PermissionGrantedResponse?) {
+                        val intent = Intent()
+                        intent.type = "image/*"
+                        intent.action = Intent.ACTION_GET_CONTENT
+                        startActivityForResult(
+                            Intent.createChooser(intent, "Select Image"),
+                            PICK_IMAGE_REQUEST
+                        )
+                    }
 
-              override fun onPermissionDenied(response: PermissionDeniedResponse?) {
+                    override fun onPermissionDenied(response: PermissionDeniedResponse?) {
 
-              }
+                    }
 
-              override fun onPermissionRationaleShouldBeShown(permission: PermissionRequest?, token: PermissionToken?) {
-                  token?.continuePermissionRequest()
-              }
-          }).check()
-
-
+                    override fun onPermissionRationaleShouldBeShown(
+                        permission: PermissionRequest?,
+                        token: PermissionToken?
+                    ) {
+                        token?.continuePermissionRequest()
+                    }
+                }).check()
 
 
         }
@@ -270,20 +276,20 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
         })
 
 
-         loadingDialog= activity?.let { LoadingDialog(it) }!!
+        loadingDialog = activity?.let { LoadingDialog(it) }!!
         btn_Update.setOnClickListener {
-            val address=etAddress.text.toString()
-            if (address.isEmpty()){
-                etAddress.error="required"
+            val address = etAddress.text.toString()
+            if (address.isEmpty()) {
+                etAddress.error = "required"
                 return@setOnClickListener
             }
             loadingDialog.startLoadingDialog()
             updateProfileImage()
             viewModel.result.observe(viewLifecycleOwner, Observer {
-                if (it==null){
+                if (it == null) {
                     loadingDialog.dismissDialog()
 
-                }else{
+                } else {
                     loadingDialog.dismissDialog()
                 }
                 val message = if (it == null) {
@@ -301,23 +307,22 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
     }
 
     private fun updateProfileImage() {
-        val uploader=storageRef.child("users/" + "img" + System.currentTimeMillis())
+        val uploader = storageRef.child("users/" + "img" + System.currentTimeMillis())
         filePath?.let {
             uploader.putFile(it).addOnSuccessListener {
                 uploader.downloadUrl.addOnSuccessListener(object : OnSuccessListener<Uri> {
                     override fun onSuccess(uri: Uri?) {
 
                         val user = User(
-                                curUserId,
-                                et_name.text.toString(),
-                                emails,
-                                etNumber.text.toString(),
-                                tvCount.text.toString(),
-                                bloodGrp,
-                                firebaseUser.uid
-                                ,
-                                uri.toString()?:user_images,
-                                etAddress.text.toString()?:""
+                            curUserId,
+                            et_name.text.toString(),
+                            emails,
+                            etNumber.text.toString(),
+                            tvCount.text.toString(),
+                            bloodGrp,
+                            firebaseUser.uid,
+                            uri.toString() ?: user_images,
+                            etAddress.text.toString() ?: ""
                         )
                         viewModel.updateAuthor(user)
 
@@ -337,8 +342,8 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
                 filePath = data.data
             }
             try {
-                val inputStream= filePath?.let { context?.contentResolver?.openInputStream(it) }
-                bitmap=BitmapFactory.decodeStream(inputStream)
+                val inputStream = filePath?.let { context?.contentResolver?.openInputStream(it) }
+                bitmap = BitmapFactory.decodeStream(inputStream)
                 ivUpdateProfile.setImageBitmap(bitmap)
             } catch (e: IOException) {
                 e.printStackTrace()
@@ -608,10 +613,6 @@ class UpdateFragment : Fragment(R.layout.fragment_update) {
 
         }
     }
-
-
-
-
 
 
 }
