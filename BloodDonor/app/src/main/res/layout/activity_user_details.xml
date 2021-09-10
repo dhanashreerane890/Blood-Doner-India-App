@@ -11,7 +11,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="@dimen/dp_240"
         android:background="@color/red" />
 
     <!--Top Header Layout-->
@@ -21,13 +21,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:gravity="center_vertical"
-        android:padding="16dp">
+        android:padding="@dimen/dp_16">
 
         <ImageView
             android:id="@+id/iv_back"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="10dp"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:padding="@dimen/dp_10"
             android:src="@drawable/ic_back_arrow" />
 
         <Space
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:text="Profile"
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="@dimen/dp_20"
             android:textStyle="bold" />
 
         <Space
@@ -54,10 +54,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingLeft="20dp"
+        android:paddingLeft="@dimen/dp_20"
         android:layout_below="@id/topbar"
         android:paddingTop="10dp"
-        android:paddingRight="20dp">
+        android:paddingRight="@dimen/dp_20">
 
         <!--Top Profile Section -->
         <LinearLayout
@@ -66,18 +66,18 @@
             android:background="@drawable/circularbordersolid"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="@dimen/dp_16">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                app:cardCornerRadius="6dp"
-                app:cardElevation="0dp">
+                android:layout_width="@dimen/dp_96"
+                android:layout_height="@dimen/dp_96"
+                app:cardCornerRadius="@dimen/dp_6"
+                app:cardElevation="@dimen/dp_0">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/user_image"
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
+                    android:layout_width="@dimen/dp_96"
+                    android:layout_height="@dimen/dp_96"
                     android:src="@drawable/profile_image"
                     />
             </androidx.cardview.widget.CardView>
@@ -89,11 +89,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/dp_10"
                     android:id="@+id/user_name"
                     android:text="Dhanashree Rane"
                     android:textColor="@color/black"
-                    android:textSize="21sp"
+                    android:textSize="@dimen/sp_21"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -102,8 +102,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:paddingBottom="10dp">
+                android:layout_marginTop="@dimen/dp_10"
+                android:paddingBottom="@dimen/dp_10">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -113,17 +113,17 @@
                     android:padding="8dp">
 
                     <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
+                        android:layout_width="@dimen/dp_35"
+                        android:layout_height="@dimen/dp_35"
                         android:background="@drawable/circular_grey_bordersolid"
-                        android:padding="10dp"
+                        android:padding="@dimen/dp_10"
                         android:src="@drawable/blood_drop_"
                         />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="@dimen/dp_10"
                         android:orientation="vertical">
 
                         <TextView
@@ -132,16 +132,16 @@
                             android:text="A+"
                             android:id="@+id/user_blood_group"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="@dimen/sp_20"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
+                            android:layout_marginTop="@dimen/dp_2"
                             android:text="Blood group"
                             android:textColor="@color/black"
-                            android:textSize="12sp" />
+                            android:textSize="@dimen/sp_12" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -153,16 +153,16 @@
                     android:padding="8dp">
 
                     <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
+                        android:layout_width="@dimen/dp_35"
+                        android:layout_height="@dimen/dp_35"
                         android:background="@drawable/circular_grey_bordersolid"
-                        android:padding="10dp"
+                        android:padding="@dimen/dp_10"
                         android:src="@drawable/ic_baseline_person_24" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="@dimen/dp_10"
                         android:orientation="vertical">
 
                         <TextView
@@ -170,17 +170,17 @@
                             android:layout_height="wrap_content"
                             android:text="20"
                             android:id="@+id/user_age"
-                            android:textSize="20sp"
+                            android:textSize="@dimen/sp_20"
                             android:textColor="@color/black"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
+                            android:layout_marginTop="@dimen/dp_2"
                             android:text="Age"
                             android:textColor="@color/black"
-                            android:textSize="12sp" />
+                            android:textSize="@dimen/sp_12" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -201,10 +201,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/dp_10"
                 android:background="@drawable/circularbordersolid"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="@dimen/dp_16">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -223,30 +223,30 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/dp_10"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:paddingRight="8dp">
+                        android:paddingRight="@dimen/dp_8">
 
                         <ImageView
                             android:id="@+id/user_call"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="@dimen/dp_40"
+                            android:layout_height="@dimen/dp_40"
                             android:background="@drawable/circular_grey_bordersolid"
-                            android:padding="10dp"
+                            android:padding="@dimen/dp_10"
                             android:src="@drawable/ic_call_24dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="@dimen/dp_20"
                             android:text="+91 7999193854"
                             android:id="@+id/user_phone"
-                            android:textSize="15sp"
+                            android:textSize="@dimen/sp_15"
                             android:textColor="@color/goodgrey"
                             />
                     </LinearLayout>
@@ -254,54 +254,54 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="@dimen/dp_10"
                         android:gravity="center_vertical"
-                        android:paddingRight="8dp">
+                        android:paddingRight="@dimen/dp_8">
 
                         <ImageView
                             android:id="@+id/user_send_email"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
+                            android:layout_width="@dimen/dp_40"
+                            android:layout_height="@dimen/dp_40"
                             android:background="@drawable/circular_grey_bordersolid"
-                            android:padding="10dp"
+                            android:padding="@dimen/dp_40"
                             android:src="@drawable/ic_email_24dp"
                             />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="@dimen/dp_20"
                             android:textColor="@color/goodgrey"
                             android:id="@+id/user_email"
                             android:singleLine="true"
                             android:text="sanskar@theindianappguy.com"
-                            android:textSize="15sp"
+                            android:textSize="@dimen/sp_15"
                             />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="@dimen/dp_10"
                         android:gravity="center_vertical"
                         android:paddingRight="8dp">
 
                         <ImageView
-                            android:layout_width="40dp"
+                            android:layout_width="@dimen/dp_40"
                             android:id="@+id/find_location"
-                            android:layout_height="40dp"
+                            android:layout_height="@dimen/dp_40"
                             android:background="@drawable/circular_grey_bordersolid"
-                            android:padding="10dp"
+                            android:padding="@dimen/dp_10"
                             android:src="@drawable/ic_location_24dp"
                             />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
+                            android:layout_marginLeft="@dimen/dp_20"
                             android:id="@+id/user_address"
                             android:text="Leeds, United Kingdom"
-                            android:textSize="15sp"
+                            android:textSize="@dimen/sp_15"
                             android:textColor="@color/goodgrey"
                             />
                     </LinearLayout>

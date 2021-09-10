@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginTop="@dimen/dp_10"
         android:orientation="horizontal"
         android:outlineSpotShadowColor="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,12 +24,12 @@
             android:layout_height="wrap_content"
             android:text="Blood"
             android:textColor="@color/black"
-            android:textSize="35sp"
+            android:textSize="@dimen/sp_35"
             android:textStyle="bold" />
 
         <ImageView
-            android:layout_width="40sp"
-            android:layout_height="40sp"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
             android:src="@drawable/blood_drop_"
             android:textSize="35sp" />
 
@@ -37,14 +38,14 @@
             android:layout_height="wrap_content"
             android:text="Donor"
             android:textColor="@color/black"
-            android:textSize="35sp"
+            android:textSize="@dimen/sp_35"
             android:textStyle="bold" />
     </LinearLayout>
 
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/dp_1"
         android:background="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +55,7 @@
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/dp_0"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"

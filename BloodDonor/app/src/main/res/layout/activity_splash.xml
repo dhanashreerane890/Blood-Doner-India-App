@@ -13,7 +13,6 @@
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/lf30_editor_fhehchum"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="0dp" />
+      />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
