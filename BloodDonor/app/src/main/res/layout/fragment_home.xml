@@ -12,10 +12,10 @@
         android:id="@+id/tvSelectType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/dp_20"
         android:text="Select a blood type"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="@dimen/sp_30"
         android:textStyle="bold"
 
         />
@@ -24,10 +24,10 @@
         android:id="@+id/linearLayoutBloodGroups"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        app:cardCornerRadius="10dp"
-        android:layout_marginEnd="25dp"
+        android:layout_marginStart="@dimen/dp_25"
+        android:layout_marginTop="@dimen/dp_25"
+        android:layout_marginEnd="@dimen/dp_25"
+        app:cardCornerRadius="@dimen/dp_10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvSelectType">
@@ -35,130 +35,128 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
             android:background="@drawable/color_change_layout"
-            android:weightSum="8"
-            >
+            android:orientation="horizontal"
+            android:weightSum="8">
 
 
             <TextView
                 android:id="@+id/btnAPositive"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="A+"
-                android:gravity="center"
+                android:layout_height="@dimen/dp_40"
                 android:layout_weight="1"
+                android:gravity="center"
+                android:text="A+"
                 android:textColor="@color/red"
-                android:textSize="15sp" />
+                android:textSize="@dimen/sp_15" />
 
             <View
 
-                android:layout_width="1dp"
+                android:layout_width="@dimen/dp_1"
                 android:layout_height="match_parent"
                 android:background="@color/red" />
 
             <TextView
                 android:id="@+id/btnANegative"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/dp_40"
                 android:layout_weight="1"
-                android:text="A-"
                 android:gravity="center"
+                android:text="A-"
                 android:textColor="@color/red"
-                android:textSize="15sp"
-                />
+                android:textSize="@dimen/sp_15" />
 
             <View
-                android:layout_width="1dp"
+                android:layout_width="@dimen/dp_1"
                 android:layout_height="match_parent"
                 android:background="@color/red" />
 
             <TextView
                 android:id="@+id/btnBPositive"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/dp_40"
                 android:layout_weight="1"
-                android:text="B+"
                 android:gravity="center"
+                android:text="B+"
                 android:textColor="@color/red"
-                android:textSize="15sp" />
+                android:textSize="@dimen/sp_15" />
 
             <View
-                android:layout_width="1dp"
+                android:layout_width="@dimen/dp_1"
                 android:layout_height="match_parent"
                 android:background="@color/red" />
 
             <TextView
                 android:id="@+id/btnBNegative"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/dp_40"
                 android:layout_weight="1"
-                android:text="B-"
                 android:gravity="center"
+                android:text="B-"
                 android:textColor="@color/red"
-                android:textSize="15sp" />
+                android:textSize="@dimen/sp_15" />
 
             <View
-                android:layout_width="1dp"
+                android:layout_width="@dimen/dp_1"
                 android:layout_height="match_parent"
                 android:background="@color/red" />
 
             <TextView
                 android:id="@+id/btnOPositive"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/dp_40"
                 android:layout_weight="1"
-                android:text="O+"
                 android:gravity="center"
+                android:text="O+"
                 android:textColor="@color/red"
-                android:textSize="15sp" />
+                android:textSize="@dimen/dp_15" />
 
             <View
-                android:layout_width="1dp"
+                android:layout_width="@dimen/dp_1"
                 android:layout_height="match_parent"
                 android:background="@color/red" />
 
             <TextView
                 android:id="@+id/btnONegative"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/dp_40"
                 android:layout_weight="1"
-                android:text="O-"
                 android:gravity="center"
+                android:text="O-"
                 android:textColor="@color/red"
-                android:textSize="15sp" />
+                android:textSize="@dimen/sp_15" />
 
             <View
-                android:layout_width="1dp"
+                android:layout_width="@dimen/dp_1"
                 android:layout_height="match_parent"
                 android:background="@color/red" />
 
             <TextView
                 android:id="@+id/btnABPositive"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/dp_40"
                 android:layout_weight="1"
-                android:text="AB+"
                 android:gravity="center"
                 android:singleLine="true"
+                android:text="AB+"
                 android:textColor="@color/red"
-                android:textSize="15sp" />
+                android:textSize="@dimen/sp_15" />
 
             <View
-                android:layout_width="1dp"
+                android:layout_width="@dimen/dp_1"
                 android:layout_height="match_parent"
                 android:background="@color/red" />
 
             <TextView
                 android:id="@+id/btnABNegative"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/dp_40"
                 android:layout_weight="1"
-                android:text="AB-"
-                android:singleLine="true"
                 android:gravity="center"
+                android:singleLine="true"
+                android:text="AB-"
                 android:textColor="@color/red"
-                android:textSize="15sp" />
+                android:textSize="@dimen/sp_15" />
 
 
         </LinearLayout>
@@ -166,25 +164,24 @@
     </androidx.cardview.widget.CardView>
 
     <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:scaleType="center"
-        app:lottie_loop="true"
-        android:layout_margin="10dp"
         android:id="@+id/lotie_searching"
+        android:layout_width="@dimen/dp_160"
+        android:layout_height="@dimen/dp_160"
         android:layout_gravity="center"
+        android:layout_margin="@dimen/dp_10"
+        android:scaleType="center"
         app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/searching_user"/>
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/searching_user" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnFindDonor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/red"
-        android:paddingStart="25dp"
-        android:paddingEnd="25dp"
+        android:paddingStart="@dimen/dp_25"
+        android:paddingEnd="@dimen/dp_25"
         android:text="find donor"
-        android:textColor="@color/white"
-        />
+        android:textColor="@color/white" />
 
 </LinearLayout>

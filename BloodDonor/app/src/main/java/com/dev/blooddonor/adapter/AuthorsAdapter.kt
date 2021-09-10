@@ -31,7 +31,7 @@ class AuthorsAdapter(val onClickListeners: OnClickListeners) :
         holder.view.tvFirstName.text = user.name
         holder.view.tvAge.text = user.age
         holder.view.tvGroupType.text = user.bloodGroup
-//        holder.view.tvLength.text=user.id
+
 
         if (user.profileImage == "") {
             holder.itemView.profile_image.setImageResource(R.drawable.profile_image)
